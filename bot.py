@@ -19,7 +19,7 @@ def convert(message):
     chat_id = message.chat.id
     try:
         yt = pytube.YouTube(url)
-        stream = yt.streams.filter(file_extension='mp3', only_audio=True).first()
+        stream = yt.streams.filter(only_audio=True).first()
         stream.download()
         bot.reply_to(message, 'Downloaded')
         #send audio to user
